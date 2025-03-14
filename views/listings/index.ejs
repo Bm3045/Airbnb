@@ -1,0 +1,146 @@
+<% layout('/layouts/biolerplate') %>
+  <body>
+    
+    <!--<form method="GET" action="/listings/new">
+      <button>Create New Listing</button>
+    </form> --->
+    <style>
+      .filter{
+        margin-top: 1rem;
+        display:flex;
+        /* margin-left: 1rem; */
+        text-align: center;
+       
+        
+      }
+      #filters{
+        display:flex;
+      }
+      .fil-icon:hover{
+        opacity: 1;
+        cursor: pointer;
+    
+      }
+      .fil-icon{
+        margin-left: 1rem;
+        margin-top: 0.3rem;
+        opacity: 0.7;
+      }
+      .tax-info{
+        display: none;
+    }
+    .tax-togle{
+      border: 1px solid black;
+      border-radius: 1rem;
+        /* height: 2.5rem; */
+        padding: 1rem;
+        margin-left : 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .filter::-webkit-scrollbar {
+      display: none;
+    }
+    @media (width < 1000px){
+      .tax-label{
+      font-size:0.75rem;
+      text-align: center;
+    }
+    }
+    
+    @media (width < 920px){
+      .filter{
+        overflow-x: scroll;
+       margin-top:10px;
+      }
+      .filter i{
+        font-size:1rem;
+      }
+      .filter p{
+        font-size:0.7rem;
+      }
+    .tax-togle{
+      height: 5rem;
+      
+    }
+    
+     
+    }
+    </style>
+    
+    
+    
+       <div id="filters">
+          <div class="filter">
+            <div class="fil-icon">
+              <i class="fa-sharp fa-solid fa-fire"></i>
+              <p>Trending</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-sharp fa-solid fa-bed"></i>
+              <p>Rooms</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-sharp fa-solid fa-mountain-city"></i>
+              <p>Iconic cities</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-sharp fa-solid fa-mountain"></i>
+              <p>Mountains</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-brands  fa-fort-awesome"></i>
+              <p>castles</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-sharp fa-solid fa-cow"></i>
+              <p>Farms</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-regular  fa-snowflake"></i>
+              <p>Arctic</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-solid fa-igloo"></i>
+              <p>Domes</p>
+            </div>
+            <div class="fil-icon">
+              <i class="fa-solid  fa-ship"></i>
+              <p>Boats</p>
+            </div>
+            
+    
+    <div class="tax-togle">
+            <div class="form-check-reverse form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <label class="form-check-label tax-label" for="flexSwitchCheckDefault">Display total after Taxes</label>
+            </div>
+    </div>
+    
+          </div>
+       </div>
+    
+    <ul>
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+      <% for(let listing of allListings) { %>
+        <a href="/listings/<%=listing._id %>" class="listing-link">
+      <div class="card col listing-card" >
+        <img src="<%= listing.image.url %>" class="card-img-top" alt= "listing_image" style="height: 20rem;" />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <%= listing.title %><br/>
+            &#8377; <%= listing.price %><br/>
+            
+        
+
+             
+          </p>
+        </div>
+      </div>
+      <% } %>
+    </a>
+    </div>
+
+      
